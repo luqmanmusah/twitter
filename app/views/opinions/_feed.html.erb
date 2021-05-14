@@ -1,9 +1,8 @@
 <div class="column is-half">
-  <% if user_signed_in? %>
 	<article class="media box">
 		<figure class="media-left">
 			<p class="image is-64x64">
-				<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.name) %>
+				<img src="https://bulma.io/images/placeholders/64*64.png"
 			</p>
 		</figure>
 		<div class="media-content">
@@ -16,16 +15,15 @@
   	<article class="media">
   		<div class="media-left">
   			<figure class="image is-64x64">
-  				<%= gravatar_image_tag(tweeet.user.email, size: 64, alt: tweeet.user.name) %>
+              <img src="https://bulma.io/images/placeholders/64*64.png"
   			</figure>
   		</div>
   		<div class="media-content">
   			<div class="content">
-  				<strong><%= opinion.user.name %></strong><br />
-  				<small><%= opinion.user.username %></small><br/>
+  				<strong><%= luqman Musah %></strong><br />
+  				<small><%= @luqboi %></small><br/>
   				<p><%= opinion.opinion %></p>
   			</div>
-        <% if user_signed_in? && current_user.id == opinion.user_id %>
   			<nav class="level">
   				<div class="level-left is-mobile">
   					<%= link_to opinion, class: "level-item" do %>
