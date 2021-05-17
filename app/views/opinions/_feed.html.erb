@@ -9,7 +9,6 @@
 			 <%= render 'opinions/form' %>
 		</div>
 	</article>
-  <% end %>
 <% @opinions.each do | opinion | %>
   <div class="box">
   	<article class="media">
@@ -20,16 +19,16 @@
   		</div>
   		<div class="media-content">
   			<div class="content">
-  				<strong><%= luqman Musah %></strong><br />
-  				<small><%= @luqboi %></small><br/>
-  				<p><%= opinion.opinion %></p>
+  				<strong> luqman </strong><br />
+  				<small> @luqboi </small><br/>
+  				<p><%= opinion.Text %></p>
   			</div>
   			<nav class="level">
   				<div class="level-left is-mobile">
   					<%= link_to opinion, class: "level-item" do %>
   					  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
   					<% end %>
-  					<%= link_to edit_opinion_path(tweeet), class: "level-item" do %>
+  					<%= link_to edit_opinion_path(opinion), class: "level-item" do %>
   					  <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
   					<% end %>
   					<%= link_to opinion, method: :delete, data: { confirm: "Are you sure you want to delete this opinion?" } do %>
@@ -37,7 +36,6 @@
   					<% end %>
   				</div>
   			</nav>
-        <% end %>
   		</div>
   	</article>
   </div>
