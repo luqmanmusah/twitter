@@ -1,4 +1,5 @@
 <div class="column is-half">
+<% if user_signed_in? %>
 	<article class="media box">
 		<figure class="media-left">
 			<p class="image is-64x64">
@@ -9,6 +10,7 @@
 			 <%= render 'opinions/form' %>
 		</div>
 	</article>
+<% end %>
 <% @opinions.each do | opinion | %>
   <div class="box">
   	<article class="media">
@@ -19,10 +21,11 @@
   		</div>
   		<div class="media-content">
   			<div class="content">
-  				<strong><%= opinion.user.username %></strong><br />
-  				<small><%= opinion.user.fullname %></small><br/>
+  				<strong><%= opinion.author.username %></strong><br />
+  				<small><%= opinion.author.fullname %></small><br/>
   				<p><%= opinion.Text %></p>
   			</div>
+			<% if user_signed_in? %>
   			<nav class="level">
   				<div class="level-left is-mobile">
   					<%= link_to opinion, class: "level-item" do %>
@@ -36,6 +39,7 @@
   					<% end %>
   				</div>
   			</nav>
+			<% end %>
   		</div>
   	</article>
   </div>
