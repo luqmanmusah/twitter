@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_17_101210) do
+ActiveRecord::Schema.define(version: 2021_05_18_190829) do
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
+    t.boolean "confirmed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_friendships_on_followed_id"
+    t.index ["follower_id"], name: "index_friendships_on_follower_id"
+  end
 
   create_table "opinions", force: :cascade do |t|
     t.text "Text"
@@ -37,5 +47,7 @@ ActiveRecord::Schema.define(version: 2021_05_17_101210) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "friendships", "users", column: "followed_id"
+  add_foreign_key "friendships", "users", column: "follower_id"
   add_foreign_key "opinions", "users", column: "author_id"
 end
