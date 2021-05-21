@@ -9,14 +9,15 @@
 					<img src="https://bulma.io/images/placeholders/64x64.png">
 				</figure>
 			</div>
+			<%= link_to user_path(user) do%>
 			<div class="media-content">
 				<div class="content">
 					<p>
 						<%= user.username %>
-						<%= add_friend(user) %> 
-						<%= accept(user) %>
+	
 					</p>	
 				</div>
+			<% end %>
 			</div>
 		</article>
 	</div>
