@@ -1,6 +1,6 @@
-<div class="column is-one-quarter">
-	<nav class="panel">
-		<p class="panel-heading">Profile</p>
+<div class="column is-one-quarter" >
+	<nav class="panel" id="profile">
+		
 		<div class="panel-block">
 			<article class="media">
 				<div class="media-left">
@@ -11,7 +11,7 @@
 				<div class="media-content">
 					<div class="content">
 						<p>
-							<strong><%= current_user.username %></strong><br />
+							
 							<small><%= current_user.fullname %></small>
 						</p>
 					</div>
@@ -29,16 +29,25 @@
 				<div class="level-item has-centered-text">
 					<div>
 						<p class="heading">Following</p>
-						<p class="title is-6">123</p>
+						<p class="title is-6"><%= current_user.followed_users.count %></p>
 					</div>
 				</div>
 					<div class="level-item has-centered-text">
 					<div>
 						<p class="heading">Followers</p>
-						<p class="title is-6">465K</p>
+						<p class="title is-6"><%= current_user.followers.count %></p>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="menu">
+		<ul class="menu-list">
+    		<li><a>Home</a></li>
+    		<li><a>Connect</a></li>
+			<li><a>Discover</a></li>
+			<li><a>People</a></li>
+			<li><a>Statistics</a></li>
+		</div>
+  		</ul>
 	</nav>
 </div>

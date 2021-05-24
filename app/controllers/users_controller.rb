@@ -3,7 +3,7 @@ class UsersController < ApplicationController
         @users = User.all
     end
     def show
-        @user = User.includes(:opinions, :friendships, :inverse_friendships).find(params[:id])
+        @user = User.includes(:opinions, :followers, :followed_users).find(params[:id])
     end
     
     def update
