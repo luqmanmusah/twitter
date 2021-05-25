@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :inverse_friendships, foreign_key: "follower_id", :class_name => 'Friendship'
   has_many :followed_users, through: :inverse_friendships, source: :followed
 
+  scope :most_recent, -> { order(created_at: :desc) }
 end
 
 def followers
@@ -19,9 +20,10 @@ def followers
   followers_array.compact
 end
 
-# Users who have yet to confirm follower requests
+# Users who are yet to be followed
 def pending_followers
-  friendships.map{|friendship| friendship.follower if !friendship.confirmed}.compact
+  partners = [].concat(current_user.followers, current_user.followed_users).map(&:id)
+  User.all.reject { |user| current_user.id == user.id || user.id.in?(partners) }
 end
 
 # Users who have requested to be followers

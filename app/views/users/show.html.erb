@@ -26,7 +26,9 @@
         <div class="row row-cols-4 p-0 m-0 ">
             <div class="col-12 border bg-light text-center py-4">
 
-                  
+            <figure class="image is-64x64">
+            <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
+            </figure>
 
             </div>
 
