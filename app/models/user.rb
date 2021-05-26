@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :inverse_friendships, foreign_key: "follower_id", :class_name => 'Friendship'
   has_many :followed_users, through: :inverse_friendships, source: :followed
+  has_one_attached :image
 
   scope :most_recent, -> { order(created_at: :desc) }
 end
