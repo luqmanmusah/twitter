@@ -20,3 +20,4 @@ class FriendshipsController < ApplicationController
         redirect_to user_path(friendship.follower_id)
       end
 end
+

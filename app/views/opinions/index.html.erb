@@ -7,7 +7,9 @@
     <%= render "menu" %>
    <% end %>
     <%= render "feed" %>
+    <% if user_signed_in? %>
     <%= render "who-to-follow" %>
+    <% end %>
   </div>
 </div>
 </section>
