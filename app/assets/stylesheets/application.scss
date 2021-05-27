@@ -16,38 +16,36 @@
 @import "bulma";
 
 .navbar-brand .title {
-    color: white;
+  color: white;
 }
 
 // round images
 .image {
+  border-radius: 50%;
+  img {
     border-radius: 50%;
-    img {
-        border-radius: 50%;
-    }
+  }
 }
 
 .notification:not(:last-child) {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 #profile {
-    height: 100%;
-    background-color: #1b2a3d;
-
+  height: 100%;
+  background-color: #1b2a3d;
 }
 .panel-block {
-    color: white;
+  color: white;
 }
 
 .menu-list a {
-    color: white;
+  color: white;
 }
 
 .title {
-    color: white;
+  color: white;
 }
 .menu {
-    background-color: #213246;
+  background-color: #213246;
 }
-
