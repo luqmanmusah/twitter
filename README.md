@@ -22,7 +22,7 @@
 
 ## Screenshot
 
-[twitter](https://user-images.githubusercontent.com/22328716/119786543-d2d2e680-bebf-11eb-8c51-663d86b4da31.png)
+![twitter](https://user-images.githubusercontent.com/22328716/119786543-d2d2e680-bebf-11eb-8c51-663d86b4da31.png)
 
 ## Live Demo
 
