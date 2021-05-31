@@ -1,7 +1,63 @@
-<div class="container p-0 m-0">
-  <div class="d-flex">
-    <div class="col-8 p-0 m-0 border bg-light">
-        <div class="bg-light">
+<section class="section">
+<div class="container">
+<div class="columns">
+<div class="column is-one-quarter" >
+	<nav class="panel" id="profile">
+		
+		<div class="panel-block">
+		<%= link_to user_path(current_user) do %>
+			<article class="media">
+				<div class="media-left">
+					<figure class="image is-64x64">
+						<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
+					</figure>
+				</div>
+				<div class="media-content">
+					<div class="content">
+						<p>
+							
+							<small><%= current_user.fullname %></small>
+						</p>
+					</div>
+				</div>
+			</article>
+		<% end %>
+		</div>
+		<div class="panel-block">
+			<div class="level is-mobile">
+				<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Opinions</p>
+						<p class="title is-6"><%= current_user.opinions.count %></p>
+					</div>
+				</div>
+				<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Following</p>
+						<p class="title is-6"><%= current_user.followed_users.count %></p>
+					</div>
+				</div>
+					<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Followers</p>
+						<p class="title is-6"><%= current_user.followers.count %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu">
+		<ul class="menu-list">
+			
+			<%= link_to 'Home', root_path, class: "mb-3 pl-1" %>
+			<%= link_to 'People', users_path, class: "mb-3 pl-1" %>
+			
+		</div>
+  		</ul>
+	</nav>
+</div>
+
+<div class="column is-half">
+    
         
             <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username ) %>
         
@@ -16,38 +72,38 @@
                     <% end %>
                 </div>
             </div>
-        </div>
-    </div>
+</div>
 
-    <div class="container p-0 m-0">
-        <div class="row row-cols-4 p-0 m-0 ">
-            <div class="col-12 border bg-light text-center py-4">
+<div class="column is-one-quarter">
+        
+            <div class="column">
 
-                    <%= gravatar_image_tag(current_user.email, class: "rounded-circle side-img") %>
+                    <%= gravatar_image_tag(current_user.email, class: "rounded-circle side-img center") %>
 
                 <p class="font-weight-bold"> <%= @user.username %></p>
                 
+                
 
             </div>
-
-            <div class="col-4 border bg-light">
-            <p class="font-weight-bolder text-center mt-3 mb-0"> <%= @user.opinions.length %> </p>
-            <p class="font-italic text-center font-weight-bolder"> Opinions </p>
+            <div class="columns">
+            <div class="column">
+            <p> <%= @user.opinions.length %> </p>
+            <p> Opinions </p>
             </div>
 
-            <div class="col-4 border bg-light">
-            <p class="font-weight-bolder text-center mt-3 mb-0"> <%= @user.followed_users.length %> </p>
-            <p class="font-italic text-center font-weight-bolder"> Following </p>
+            <div class="column">
+            <p> <%= @user.followed_users.length %> </p>
+            <p> Following </p>
             </div>
 
-            <div class="col-4 border bg-light">
-            <p class="font-weight-bolder text-center mt-3 mb-0"> <%= @user.followers.length %> </p>
-            <p class="font-italic text-center font-weight-bolder"> Followers </p>
+            <div class="column">
+            <p> <%= @user.followers.length %> </p>
+            <p> Followers </p>
             </div>
         </div>
-        <div class="card align-self-stretch">
+        <div class="column">
             <div class="card-header pb-0">
-                <p class="font-weight-bolder">Followed By</p>
+                <p>Followed By</p>
             </div>
                 <div class="card-body">
                     <% @user.followers.each do |user| %>
@@ -61,6 +117,9 @@
                 </div>
 
         </div>
-    </div>
+</div>
+
 
 </div>
+</div>
+</section>
