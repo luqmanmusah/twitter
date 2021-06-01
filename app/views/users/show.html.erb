@@ -58,9 +58,9 @@
 
 <div class="column is-half">
     
-        
+			<figure class="image is-5by4">
             <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username ) %>
-        
+			</figure>
 
             <div class="card-body">
                 <h6 class="pb-0 mb-0"><%= link_to 'My Opinions', user_path(@user), class: "text-dark font-weight-bolder pl-3" %></h6><hr>
