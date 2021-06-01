@@ -1,19 +1,4 @@
 # frozen_string_literal: true
-module DevisePermittedParameters
-
-  extend ActiveSupport::Concern
-
-  included do
-    before_action :configure_permitted_parameters
-  end
-
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [:photo])
-  end
-
-end
 
 DeviseController.send :include, DevisePermittedParameters
 # Assuming you have not yet modified this file, each configuration option below
