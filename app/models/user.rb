@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { minimum: 10 }
   validates :password, presence: true
 
-  has_many :opinions, foreign_key: 'author_id', class_name: 'Opinion'
+  has_many :opinions, foreign_key: 'author_id', class_name: 'Opinion', dependent: :destroy
 
   has_many :friendships, foreign_key: 'followed_id', class_name: 'Friendship'
   has_many :followers, through: :friendships, source: :follower

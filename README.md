@@ -1,10 +1,10 @@
-# README
+## README
 
 # Redesign of Twitter
 
-> The purpose of this project was to build a Twitter Resdesign to immitate the basic feature of Twitter. That is Sharing your opinion, following another User and can be followed as well.
+> The purpose of this project was to build a Twitter Redesign to immitate the basic feature of Twitter. That is Sharing your opinion, following another User and can be followed as well.
 
-# Some of the advanced concepts explored in this project includes.
+## Some of the advanced concepts explored in this project includes.
 
 - Working with advanced associations, many-to-many relationships, a typical twitter follow and follower relationship model.
 - Authentication using Devise
