@@ -1,0 +1,27 @@
+<div class="column">
+	<nav class="panel">
+		<p class="panel-heading">Who to Follow</p>
+	<strong><% pending_followers.each do |user| %></strong>
+	<div class="panel-block">
+		<article class="media">
+			<div class="media-left">
+				<figure class="image is-32x32">
+					<img src="https://bulma.io/images/placeholders/64x64.png">
+				</figure>
+			</div>
+			<%= link_to user_path(user) do%>
+			<div class="media-content">
+				<div class="content">
+					<p>
+						<%= user.username %>
+						<%= link_to 'Follow', user_path(user), method: :patch, class: 'badge badge-primary ml-3' %>
+	
+					</p>	
+				</div>
+			<% end %>
+			</div>
+		</article>
+	</div>
+	<% end %>
+	</nav>
+</div>

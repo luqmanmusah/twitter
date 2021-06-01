@@ -1,0 +1,54 @@
+<div class="sidenav" >
+	<nav class="panel" id="profile">
+		
+		<div class="panel-block">
+		<%= link_to user_path(current_user) do %>
+			<article class="media">
+				<div class="media-left">
+					<figure class="image is-64x64">
+						<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
+					</figure>
+				</div>
+				<div class="media-content">
+					<div class="content">
+						<p>
+							
+							<small><%= current_user.fullname %></small>
+						</p>
+					</div>
+				</div>
+			</article>
+		<% end %>
+		</div>
+		<div class="panel-block">
+			<div class="level is-mobile">
+				<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Opinions</p>
+						<p class="title is-6"><%= current_user.opinions.count %></p>
+					</div>
+				</div>
+				<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Following</p>
+						<p class="title is-6"><%= current_user.followed_users.count %></p>
+					</div>
+				</div>
+					<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Followers</p>
+						<p class="title is-6"><%= current_user.followers.count %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu">
+		<ul class="menu-list">
+			
+			<%= link_to 'Home', root_path, class: "mb-3 pl-1" %>
+			<%= link_to 'People', users_path, class: "mb-3 pl-1" %>
+			
+		</div>
+  		</ul>
+	</nav>
+</div>

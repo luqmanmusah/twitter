@@ -1,0 +1,18 @@
+development:
+  cloud_name: dbqfd7udj
+  api_key: '928521618958615'
+  api_secret: 'AltELwSekEOboxatSIP9XAUz_TA'
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dbqfd7udj
+  api_key: '928521618958615';
+  api_secret: 'AltELwSekEOboxatSIP9XAUz_TA'
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dbqfd7udj
+  api_key: '928521618958615'
+  api_secret: 'AltELwSekEOboxatSIP9XAUz_TA'
+  enhance_image_tag: true
+  static_image_support: false
