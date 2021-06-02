@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   validates :username, presence: true, length: { minimum: 3 }
   validates :email, presence: true, length: { minimum: 10 }
-  validates :password, presence: true
 
   has_many :opinions, foreign_key: 'author_id', class_name: 'Opinion', dependent: :destroy
 

@@ -31,9 +31,9 @@ gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
 gem 'devise', '~> 4.8'
 gem 'gravatar_image_tag', '~> 1.2'
+gem 'pg'
 gem 'rubocop'
 gem 'simple_form', '~> 5.1'
-gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
