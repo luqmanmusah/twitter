@@ -58,8 +58,13 @@
 
 <div class="column is-half">
     
-			<figure class="image is-5by4">
-            <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username ) %>
+			<figure class="is-4by3">
+            <% if @user.photo.attached? %>
+				<img src="<%= url_for(@user.photo) %>" >
+			<% else %>
+			<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
+			<% end %>
+
 			</figure>
 
             <div class="card-body">

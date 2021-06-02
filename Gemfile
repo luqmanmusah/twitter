@@ -31,13 +31,13 @@ gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
 gem 'devise', '~> 4.8'
 gem 'gravatar_image_tag', '~> 1.2'
+gem 'pg'
 gem 'rubocop'
 gem 'simple_form', '~> 5.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'sqlite3'
 end
 
 group :development do
@@ -51,7 +51,6 @@ group :development do
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'guard', '~> 2.16', '>= 2.16.2'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
-  gem 'pg'
   gem 'spring'
 end
 
