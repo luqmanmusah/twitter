@@ -79,16 +79,48 @@
             </div>
 </div>
 
-<div class="column is-one-quarter">
-        
-            <div class="column">
+<div class="column">
 
-                    <%= gravatar_image_tag(current_user.email, class: "center") %>
+			<div class="columns is-mobile is-centered">
+			<div class="column is-half">
+			<p class="bd-notification is-primary">
+			<% if @user.photo.attached? %>
+			<img class="image is-rounded"src="<%= url_for(@user.photo) %>" >
+			<% else %>
+			<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
+			<% end %>
+			</p>
+			</div>
+			</div>
 
-                <p class="font-weight-bold"> <%= @user.username %></p>
-                
-            </div>
-            <div class="columns">
+			<div class="columns is-mobile is-centered">
+			<div class="column is-half">
+				<p class="bd-notification is-primary">
+				<%= @user.username %><br>
+				<button> <%=	link_to 'Follow', user_path(@user), method: :patch, class: 'badge badge-primary' %> 
+							</button>
+				</p>
+			</div>
+			</div>
+			
+			<div class="card">
+				<footer class="card-footer">
+					<a href="#" class="card-footer-item">
+					<p> <%= @user.opinions.length %> </p><br>
+            		<p> Opinions </p>
+					</a>
+					<a href="#" class="card-footer-item">
+					<p> <%= @user.followed_users.length %> </p><br>
+					<p> Following </p>
+					</a>
+					<a href="#" class="card-footer-item">
+					<p> <%= @user.followers.length %> </p><br>
+            		<p> Followers </p>
+					</a>
+				</footer>
+			</div>
+
+            <div class="columns border">
             <div class="column">
             <p> <%= @user.opinions.length %> </p>
             <p> Opinions </p>
