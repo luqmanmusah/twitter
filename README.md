@@ -2,13 +2,13 @@
 
 # Redesign of Twitter
 
-> The purpose of this project was to build a Twitter Redesign to immitate the basic feature of Twitter. That is Sharing your opinion, following another User and can be followed as well.
+> The purpose of this project was to build a Twitter Redesign to imitate the basic features of Twitter. That is Sharing your opinion, following another User and can be followed as well.
 
-## Some of the advanced concepts explored in this project includes.
+## Some of the advanced concepts explored in this project include.
 
-- Working with advanced associations, many-to-many relationships, a typical twitter follow and follower relationship model.
+- Working with advanced associations, many-to-many relationships, a typical twitter follower and follower relationship model.
 - Authentication using Devise
-- Used RSpec as the test suit with the help of shoulda-matchers and capybara for effective testing. Both unit and integration testing was done.
+- Used RSpec as the test suite with the help of shoulda-matchers and capybara for effective testing. Both unit and integration testing was done.
 - Used carrierwave gem to achieve image upload for profile photo.
 
 ## Built With
