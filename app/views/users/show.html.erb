@@ -66,55 +66,80 @@
 			<% end %>
 
 			</figure>
-
+			<div class="tabs">
+			<ul>
+				<li class="is-active"><a>Opionions</a></li>
+				<li><a>Pictures</a></li>
+				<li><a>Followers</a></li>
+				<li><a>Following</a></li>
+			</ul>
+			</div>
             <div class="card-body">
-                <h6 class="pb-0 mb-0"><%= link_to 'My Opinions', user_path(@user), class: "text-dark font-weight-bolder pl-3" %></h6><hr>
+                <h6>My Opinions</h6><hr>
                 <div class= "text-muted">
                     <% @user.opinions.each do |opinion| %>
                         <div class="card-body text-muted">
-                            <p class="fsz text-muted"> <%= opinion.Text %> <span><%= link_to 'Delete', opinion_path(opinion), method: :delete, class: 'btn btn-primary btn-sm ml-5 fsz-2' %></span></p>
+                            <p> <%= opinion.Text %> <span><%= link_to 'Delete', opinion_path(opinion), method: :delete, class: 'btn btn-primary btn-sm ml-5 fsz-2' %></span></p>
                         </div><hr>
                     <% end %>
                 </div>
             </div>
 </div>
 
-<div class="column is-one-quarter">
-        
-            <div class="column">
+<div class="box">
 
-                    <%= gravatar_image_tag(current_user.email, class: "center") %>
+			<div class="columns is-mobile is-centered">
+			<div class="column is-half">
+			<p class="bd-notification is-primary">
+			<% if @user.photo.attached? %>
+			<img class="image is-rounded"src="<%= url_for(@user.photo) %>" >
+			<% else %>
+			<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
+			<% end %>
+			</p>
+			</div>
+			</div>
+			
+			<div class="columns is-mobile is-centered">
+			<div class="column is-half">
+				
+				<%= @user.fullname %><br>
+				<button class="column is-centered"> <%=	link_to 'Follow', user_path(@user), method: :patch, class: 'badge badge-primary' %> 
+							</button>
+			
+			</div>
+			</div>
+			
+			<div class="card">
+				<div class="card-footer">
+					
+					<p class="card-footer-item">
+					<span><%= @user.opinions.length %>
+            		 <a href="#">Opinions </a></span>
+					</p>
+					<p class="card-footer-item">
+					<span><%= @user.followed_users.length %>
+            		 <a href="#">Following </a></span>
+					</p>
+					<p class="card-footer-item">
+					<span><%= @user.followers.length %>
+            		 <a href="#">Followers </a></span>
+					</p>
+				</div>
+			</div>
 
-                <p class="font-weight-bold"> <%= @user.username %></p>
-                
-            </div>
-            <div class="columns">
-            <div class="column">
-            <p> <%= @user.opinions.length %> </p>
-            <p> Opinions </p>
-            </div>
-
-            <div class="column">
-            <p> <%= @user.followed_users.length %> </p>
-            <p> Following </p>
-            </div>
-
-            <div class="column">
-            <p> <%= @user.followers.length %> </p>
-            <p> Followers </p>
-            </div>
-        </div>
+          
         <div class="column">
-            <div class="card-header pb-0">
+            <div class="tabs is-large">
                 <p>Followed By</p>
             </div>
-                <div class="card-body">
+                <div class="card-body"><hr>
                     <% @user.followers.each do |user| %>
-                        <div class="card-body d-flex py-0">
+                        <div class="card-body is-flex">
 
-                            <%= gravatar_image_tag(current_user.email, class: "f-by-img rounded-circle") %>
+                            <%= gravatar_image_tag(current_user.email, class: "image rounded-circle") %>
 
-                        <h4 class="font-weight-bolder ml-3 pt-3 fsz"> <%= user.username %> </h4>
+                        <h4 class="is-text-centered"> <%= user.fullname %> </h4><hr>
                         </div><hr>
                     <% end %>
                 </div>
