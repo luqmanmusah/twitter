@@ -104,9 +104,7 @@
 			<div class="column is-half">
 				
 				<%= @user.fullname %><br>
-				<button class="column is-centered"> <%=	link_to 'Follow', user_path(@user), method: :patch, class: 'badge badge-primary' %> 
-							</button>
-			
+				<button> <%= display_follow_btn(@user) %></button>
 			</div>
 			</div>
 			

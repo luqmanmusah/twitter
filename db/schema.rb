@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_063316) do
+ActiveRecord::Schema.define(version: 2021_06_15_120746) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,7 +46,6 @@ ActiveRecord::Schema.define(version: 2021_05_26_063316) do
   create_table "friendships", force: :cascade do |t|
     t.integer "follower_id", null: false
     t.integer "followed_id", null: false
-    t.boolean "confirmed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["followed_id"], name: "index_friendships_on_followed_id"
