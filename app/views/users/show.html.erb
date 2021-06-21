@@ -1,0 +1,151 @@
+<section class="section">
+<div class="container">
+<div class="columns">
+<div class="column is-one-quarter" >
+	<nav class="panel" id="profile">
+		
+		<div class="panel-block">
+		<%= link_to user_path(current_user) do %>
+			<article class="media">
+				<div class="media-left">
+					<figure class="image is-64x64">
+						<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
+					</figure>
+				</div>
+				<div class="media-content">
+					<div class="content">
+						<p>
+							
+							<small><%= current_user.fullname %></small>
+						</p>
+					</div>
+				</div>
+			</article>
+		<% end %>
+		</div>
+		<div class="panel-block">
+			<div class="level is-mobile">
+				<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Opinions</p>
+						<p class="title is-6"><%= current_user.opinions.count %></p>
+					</div>
+				</div>
+				<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Following</p>
+						<p class="title is-6"><%= current_user.followed_users.count %></p>
+					</div>
+				</div>
+					<div class="level-item has-centered-text">
+					<div>
+						<p class="heading">Followers</p>
+						<p class="title is-6"><%= current_user.followers.count %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu">
+		<ul class="menu-list">
+			
+			<%= link_to 'Home', root_path, class: "mb-3 pl-1" %>
+			<%= link_to 'People', users_path, class: "mb-3 pl-1" %>
+			
+		</div>
+  		</ul>
+	</nav>
+</div>
+
+<div class="column is-half">
+    
+			<figure class="is-fullwidth">
+            <% if @user.photo.attached? %>
+				<img src="<%= url_for(@user.photo) %>" >
+			<% else %>
+			<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
+			<% end %>
+
+			</figure>
+			<div class="tabs">
+			<ul>
+				<li class="is-active"><a>Opionions</a></li>
+				<li><a>Pictures</a></li>
+				<li><a>Followers</a></li>
+				<li><a>Following</a></li>
+			</ul>
+			</div>
+            <div class="card-body">
+                <h6>My Opinions</h6><hr>
+                <div class= "text-muted">
+                    <% @user.opinions.each do |opinion| %>
+                        <div class="card-body text-muted">
+                            <p> <%= opinion.Text %> <span><%= link_to 'Delete', opinion_path(opinion), method: :delete, class: 'btn btn-primary btn-sm ml-5 fsz-2' %></span></p>
+                        </div><hr>
+                    <% end %>
+                </div>
+            </div>
+</div>
+
+<div class="box">
+
+			<div class="columns is-mobile is-centered">
+			<div class="column is-half">
+			<p class="bd-notification is-primary">
+			<% if @user.photo.attached? %>
+			<img class="image is-rounded" src="<%= url_for(@user.photo) %>" >
+			<% else %>
+			<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
+			<% end %>
+			</p>
+			</div>
+			</div>
+			
+			<div class="columns is-mobile is-centered">
+			<div class="column is-half">
+				
+				<%= @user.fullname %><br>
+				<%= display_follow_btn(@user) %>
+			</div>
+			</div>
+			
+			<div class="card">
+				<div class="card-footer">
+					
+					<p class="card-footer-item">
+					<span><%= @user.opinions.length %>
+            		 <a href="#">Opinions </a></span>
+					</p>
+					<p class="card-footer-item">
+					<span><%= @user.followed_users.length %>
+            		 <a href="#">Following </a></span>
+					</p>
+					<p class="card-footer-item">
+					<span><%= @user.followers.length %>
+            		 <a href="#">Followers </a></span>
+					</p>
+				</div>
+			</div>
+
+          
+        <div class="column">
+            <div class="tabs is-large">
+                <p>Followed By</p>
+            </div>
+                <div class="card-body"><hr>
+                    <% @user.followers.each do |user| %>
+                        <div class="card-body is-flex">
+
+                            <%= gravatar_image_tag(current_user.email, class: "image rounded-circle") %>
+
+                        <h4 class="is-text-centered"> <%= user.fullname %> </h4><hr>
+                        </div><hr>
+                    <% end %>
+                </div>
+
+        </div>
+</div>
+
+
+</div>
+</div>
+</section>

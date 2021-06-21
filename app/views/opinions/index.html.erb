@@ -1,27 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Opinions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @opinions.each do |opinion| %>
-      <tr>
-        <td><%= opinion.Text %></td>
-        <td><%= link_to 'Show', opinion %></td>
-        <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
-        <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<section class="section">
+<div class="container">
+  <div class="columns">
+   <% if user_signed_in? %>
+    <%= render 'profile' %>
+   <% else %>
+    <%= render "menu" %>
+   <% end %>
+    <%= render "feed" %>
+    <% if user_signed_in? %>
+    <%= render "who-to-follow" %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+</section>
 
-<br>
-
-<%= link_to 'New Opinion', new_opinion_path %>

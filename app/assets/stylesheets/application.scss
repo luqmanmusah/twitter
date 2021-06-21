@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+@import "bulma";
+
+.title {
+  color: white;
+}
+
+.navbar-brand .title {
+  color: white;
+}
+
+#profile {
+  height: 100%;
+  background-color: #1b2a3d;
+}
+
+.panel-block {
+  color: white;
+}
+
+.menu-list a {
+  color: white;
+}
+
+.menu {
+  background-color: #213246;
+  height: 100%;
+}
+
+// round images
+
+.image {
+  border-radius: 50%;
+
+  img {
+    border-radius: 50%;
+  }
+}
