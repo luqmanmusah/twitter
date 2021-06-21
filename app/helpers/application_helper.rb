@@ -8,6 +8,6 @@ module ApplicationHelper
   end
 
   def display_follow_btn(_user)
-    link_to 'Follow', user_path(@user), method: :patch, class: 'badge badge-primary' if display_follow_btn?(@id)
+    button_to 'Follow', user_path(@user), method: :patch, class: 'badge badge-primary' if display_follow_btn?(@user.id)
   end
 end
