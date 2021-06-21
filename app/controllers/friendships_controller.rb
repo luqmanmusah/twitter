@@ -19,4 +19,14 @@ class FriendshipsController < ApplicationController
     friendship.update(confirmed: true)
     redirect_to user_path(friendship.follower_id)
   end
+
+  # def create
+  #   @friendship = Current.user.friendships.new(followed_id: params[:user_id])
+  #   if @friendship.save
+  #       flash[:notice] = "You are following #{User.find(params[:user_id]).full_name}"
+  #   else
+  #       flash[:alert] = 'Something went wrong ...'
+  #   end
+  #   redirect_to root_path
+  # end
 end

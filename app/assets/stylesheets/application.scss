@@ -23,20 +23,6 @@
   color: white;
 }
 
-// round images
-
-.image {
-  border-radius: 50%;
-
-  img {
-    border-radius: 50%;
-  }
-}
-
-.notification:not(:last-child) {
-  margin-bottom: 0;
-}
-
 #profile {
   height: 100%;
   background-color: #1b2a3d;
@@ -55,16 +41,12 @@
   height: 100%;
 }
 
-.image.is-128x128 {
-  height: 128px;
-  width: 128px;
-}
+// round images
 
-.card-footer {
-  align-items: center;
-  justify-content: center;
-}
+.image {
+  border-radius: 50%;
 
-.enable_break {
-  white-space: pre-wrap;
+  img {
+    border-radius: 50%;
+  }
 }

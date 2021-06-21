@@ -92,7 +92,7 @@
 			<div class="column is-half">
 			<p class="bd-notification is-primary">
 			<% if @user.photo.attached? %>
-			<img class="image is-rounded"src="<%= url_for(@user.photo) %>" >
+			<img class="image is-rounded" src="<%= url_for(@user.photo) %>" >
 			<% else %>
 			<%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
 			<% end %>
@@ -104,9 +104,7 @@
 			<div class="column is-half">
 				
 				<%= @user.fullname %><br>
-				<button class="column is-centered"> <%=	link_to 'Follow', user_path(@user), method: :patch, class: 'badge badge-primary' %> 
-							</button>
-			
+				<%= display_follow_btn(@user) %>
 			</div>
 			</div>
 			
